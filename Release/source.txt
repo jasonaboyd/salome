@@ -1,0 +1,127 @@
+"A Vignette from 'Salome'"
+
+The story title is "A Vignette from 'Salome'".
+The story author is "Jason Boyd".
+The story headline is "Adapted from the play by Oscar Wilde".
+The story description is "An IF Enactment."
+The story creation year is 2026.
+
+Include Basic Screen Effects by Emily Short.
+
+Use serial comma.
+
+Release along with cover art ("A silver charger"), an interpreter, an introductory postcard, the source text and the library card.
+
+Part 1 - The World
+
+The Moon is a backdrop. It is in the Terrace and the Cistern.
+
+The Terrace is a room. The description is "A great terrace in the Palace of Herod, set above the banqueting-hall. The full moon shines brightly.[if Grate is open] A low circular wall of green bronze has a metal grate leaning against it.[otherwise] A low circular wall of green bronze surrounds a metal grate."
+
+The wall of green bronze is a thing in the Terrace. It is fixed in place. It is scenery. "The wall encircles the mouth of a disused cistern which extends under the terrace."
+
+The Grate is a door. It is below the Terrace and above the Cistern. It is scenery. The Grate is closed and locked. The description is "[if closed]A heavy rusting metal grate. It covers the mouth of an old cistern.[otherwise]The grate lies against the wall of green bronze." The Silver Charger unlocks the Grate.
+
+Mouth of the Cistern is scenery in the Terrace. "Without climbing down into the cistern, all you can see of it here is the opening."
+
+The Cistern is a room. The Cistern is below the Grate. The description is "The cistern is dark. Only the moon's faint beams penetrate the gloom. A dark mass lies huddled on the floor."
+
+Princess Salome is a female in the Terrace. 
+
+The Silver Charger is a container. The description is "A wide basin of elaborately embossed and chased silver." 
+
+The Silver Charger is carried by Princess Salome. 
+
+The Head of Iokanaan is a thing. It is nowhere.
+
+Dark mass is a thing in the Cistern. It is scenery. It is fixed in place.
+
+The player carries the heavy sword. The description of the heavy sword is "A long, heavy sword, suitable for decapitation."
+
+The player carries a ring. The description of the ring is "A gold ring set with a large black onyz. This is your warrant from the King to perform an execution."
+
+Part 2 - The Play
+
+When play begins:
+	say "SALOMÉ (kneeling) I would that they presently bring me in a silver charger....[line break][line break]HEROD (laughing) In a silver charger? Surely yes, in a silver charger. She is charming, is she not? What is it you would have in a silver charger, O sweet and fair Salomé, you who are fairer than all the daughters of Judæa? What would you have them bring thee in a silver charger? Tell me. Whatsoever it may be, they shall give it you. My treasures belong to thee. What is it, Salomé?[line break][line break]SALOMÉ (rising) The head of Iokanaan.";
+	pause the game.
+
+Instead of examining the Moon:
+	say "She is like [one of]a woman rising from a tomb[or]a dead woman[or]a little princess who wears a yellow veil, and whose feet are of silver[or]a princess who has little white doves for feet[or]a little piece of money[or]a little silver flower[or]a dead woman who is seeking to cover herself with a shroud[or]a little princess, whose eyes are eyes of amber[or]a mad woman who is seeking everywhere for lovers[or]the moon: that is all[in random order]."
+	
+Instead of examining the player:
+	say "You are Naaman, the King's executioner."
+
+Instead of dropping the heavy sword:
+	say "It's never a good idea for an executioner to be without thier sword.";
+	stop the action.
+
+Instead of dropping the ring:
+	say "Losing the King's death ring would only result in you losing your own head.";
+	stop the action. 
+
+Instead of examining Princess Salome:
+	if Princess Salome carries the Silver Charger:
+		say "Flushed--glowing--from her dance and from forcing King Herod to grant her wish. She holds a silver charger out to you, demanding, 'Bring me the head of Iokanaan!'";
+	else if the player carries the Silver Charger containing the Head of Iokanaan:
+		say "'Give me the charger!'"; 
+	otherwise:
+		say "'Bring me the head of Iokanaan!' the Princess demands impatiently."
+
+Understand "talk to [someone]" as a mistake ("The Princess's only response is an icy glare.").
+
+Instead of asking Princess Salome for the Silver Charger when the Princess Salome is carrying the Silver Charger:
+	move the Silver Charger to the player;
+	say "You bow to the Princess, and take the charger."
+
+Instead of searching the grate:
+	say "You peer down through the grate, but all you can see is vague shadows."
+
+Instead of opening or pushing the grate:
+	if the grate is locked and the player carries the Silver Charger:
+		say "You push the Grate to one side.";
+		now the grate is unlocked;
+		now the grate is open;
+	else if the grate is open:
+		say "You have already moved the grate from the mouth of the cistern.";
+	otherwise:
+		say "No one has ordered you to move the grate over the cistern, where the Prophet Iokanaan is imprisoned.";
+		stop the action.
+
+Before going down:
+	if the Grate is locked:
+		say "No one has ordered you to go down into the cistern, where the Prophet Iokanaan is imprisoned.";
+		stop the action;
+	otherwise:
+		continue the action.
+
+After going down in the Cistern:
+	if the Silver Charger contains the Head of Iokanaan:
+		say "The cistern is dark. Only the moon's faint beams penetrate the gloom. A dark mass lies huddled on the floor.";
+	otherwise:
+		if the player carries the Silver Charger:
+			say "After climbing down into the cistern, your work is quickly accomplished. Iokanaan offers no resistance as you push him face down, and, with a single, heavy blow, cleave off his head.";
+			now the Head of Iokanaan is in the Silver Charger.
+			
+Instead of examining or taking the Dark mass:
+	say "You'll dispose of that later."
+
+After going up to the Terrace:
+	say "You clamber out of the cistern."
+
+Instead of going nowhere from the Terrace:
+	say "You really should not leave the vicinity of the terrace."
+		
+Instead of giving the Head of Iokanaan to Princess Salome:
+	say "The Princess glares at you. 'I want the head of Iokanaan brought to me IN the charger!'";
+	stop the action.
+
+Instead of giving or showing the Silver Charger to Princess Salome:
+	if the Silver Charger contains the Head of Iokanaan:
+		move the Silver Charger to Princess Salome;
+		end the story finally saying "The Princess eagerly takes the silver charger with its bloody prize. She leans her head towards it slowly. [line break][line break]Her eyes blazing, her face comes closer and closer to the lifeless face.... [line break][line break]You look away and up: the moon is like a great silver charger, horribly stained.";
+	otherwise:
+		say "The Princess will not be pleased if you give her a headless charger.";
+		stop the action.
+
+Test me with "x me / i / x ring / x sword /  x wall / x cistern / x grate / look through grate / move grate / n / e / w / s / d / x Princess / talk to Princess / ask Princess for charger / i / drop ring / move grate / x grate / look / x Princess / x moon / d / i / drop sword / look / x mass / x moon / take mass / up / x Princess / give Princess head of Iokanaan / give Princess charger / put head in charger / give charger to Princess". 
